@@ -1,62 +1,52 @@
 
 
 
-//display letter user chose, a list of 9 guesses
+//display letter user chose, a list of 12 guesses
 
 
 //use an alphabet array
-var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+//var playerChoices = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-
-
-
-//reset game at end
-
-var wins = 0;
-var losses= 0;
-var guessesLeft = 9;
+var wordList = [];
+var guessesLeft = 12;
 var guessesMade = [];
 
 //user chooses a letter - use  var userguess = String.fromCharCode(event.keyCode).toLowerCase();
 document.onkeyup = function(event) {
 
-	//var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-	var userGuess = event.key;
+	var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
+	//var userGuess = event.key;
 	//display guesses so far
 	guessesMade.push(userGuess);
 
 	console.log(userGuess);
 
-	//get the game to choose a random letter
-	var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-	console.log(computerGuess);
+	// //count of guesses left	,tally and display my wins, tally and display my losses
+	
+	// if (userGuess === computerGuess) {
+	// 	wins++;
+	// 	guessesLeft = 12;
+	// 	guessesMade = [];
 
-	//count of guesses left	,tally and display my wins, tally and display my losses
-	
-	
-	if (userGuess === computerGuess) {
-		wins++;
-		guessesLeft = 9;
-		guessesMade = [];
+	// }
+	// else {
+	// 	guessesLeft--;
+	// }
+	// 	//reset game at end
 
-	}
-	else {
-		guessesLeft--;
-	}
-		
-	if (guessesLeft === 0) {
-		losses++;
-		guessesLeft = 9;
-		guessesMade = [];
-	}	
+	// if (guessesLeft === 0) {
+	// 	losses++;
+	// 	guessesLeft = 12;
+	// 	guessesMade = [];
+	// }	
 	
-	var html = "<p>Can you guess what letter I'm thinking of???</p><br>" +
-			   "<p>Wins: " + wins + "</p><br>" +
-			   "<p>Losses: " + losses + "</p><br>" +
- 			   "<p>Guesses Left: " + guessesLeft + "</p><br>" +
- 			   "<P>Your guesses so far: " + guessesMade + "</p><br>" 
- 			   
+	var html = "<p>Press any key to get started!</p><br>" +
+				//"<p>Current Word: "" + + "</p><br>" +
+				//"<p>Number of Guesses Remaining: " + guessesLeft + "</p><br>" +
+				"<p>Letters Already Guessed: " + guessesMade + "</p>"
 
 	document.querySelector("#game").innerHTML = html;
 };
+
+ 			   
