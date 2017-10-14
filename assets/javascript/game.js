@@ -16,13 +16,14 @@ document.onkeyup = function(event) {
 
 	var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
 	//var userGuess = event.key;
+	
 	//display guesses so far
 	guessesMade.push(userGuess);
 
 	console.log(userGuess);
 
 
-	// //count of guesses left	,tally and display my wins, tally and display my losses
+
 	
 	// if (userGuess === computerGuess) {
 	// 	wins++;
